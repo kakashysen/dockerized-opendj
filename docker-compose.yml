@@ -1,0 +1,14 @@
+version: '2'
+services:
+  opendj:
+    build: .
+    container_name: dockerized-opendj
+    volumes:
+      - ./ldap/db:/opt/opendj/db
+      - ./ldap/logs:/opt/opendj/logs
+      - ./ldap/config:/opt/opendj/config
+    ports:
+      - "389:389"
+      - "636:636"
+      - "4444:4444"
+
